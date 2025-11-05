@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Login</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 </head>
 <body class="login-page">
   <div class="card">
