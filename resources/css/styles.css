@@ -1,0 +1,629 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  color: #fff;           
+  text-align: center;      
+  padding: 1rem;           
+  position: relative;      
+  width: 100%;             
+  margin-top: 2rem;       
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;  
+}
+
+.resume-page {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding: 20px;
+}
+/* === Fade In Animation === */
+body {
+  opacity: 0;
+  transform: translateY(30px); 
+  animation: fadeInUp 1s ease-out forwards;
+
+  
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Error Style === */
+
+.error {
+  color: #f00;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: small;
+  background: #000000;
+  color: #fff;
+  text-align: left;
+}
+
+/* === Login Page Style === */
+
+body.login-page .card h2 {
+  text-align: left;
+}
+
+body.login-page {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2em;
+  position: relative;
+  background: #222;
+  border-radius: 10px;
+  border: 1px solid #606060;
+  display: flex;
+}
+
+.register-link a {
+  text-decoration: none;
+  color: #fafafa;
+  font-size: small;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.register-link a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.register-link {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 5px;
+}
+
+label.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label.form-field input {
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 0px;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.card {
+  font-family: 'DM Sans', sans-serif;
+  margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  align-self: left;
+}
+
+.card .login-form {
+  align-self: center;
+}
+
+/* === Registration Page Style === */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2em;
+  position: relative;
+  background: #222;
+  border-radius: 10px;
+  border: 1px solid #606060;
+  display: flex;
+}
+
+body.register-page .card h2 {
+  text-align: left;
+}
+
+body.register-page {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-link a {
+  text-decoration: none;
+  color: #fafafa;
+  font-size: small;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.login-link a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.login-link {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.card .register-form {
+  align-self: center;
+}
+
+/* === Resume Page Style === */
+
+p {
+  line-height: 2;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 0.4rem 1.5rem;
+  text-align: center;
+  transition: all  .2s ease;
+  text-decoration-thickness: from-font 50%;
+  box-shadow: none;
+  margin: 0;
+}
+
+button:hover {
+  background-color: rgb(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 1);
+}
+
+h1 {
+  font-weight: bolder;
+}
+
+.contact-info {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items:center;
+  align-content: center;
+}
+
+.contact-info p i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+
+.contact-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 1rem; 
+  }
+}
+
+.github-button,
+.resume-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 9999px;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.github-button:hover,
+.resume-button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+.profile-details p location-icon {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;;
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;  
+  text-align: left;
+  padding: 0;
+  justify-content: flex-start;
+  max-width: 100%;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.profile-pic {
+  width: 30vw;
+  max-width: 200px;
+  min-width: 60px;
+  height: 30vw;
+  max-height: 200px;
+  min-height: 60px;
+  border-radius: 10%;
+  border: 1px solid rgba(255,255,255,0.3);
+  margin-right: 1rem;
+  object-fit: cover;
+  object-position: 60% 30%;
+}
+
+.profile-info {
+  min-width: 0;
+  flex: 1 1 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;   
+  align-items: flex-start;  
+}
+
+.profile-details {
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h1,
+.profile-info h2,
+.profile-info p {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+} 
+
+.profile-info h2 {
+  font-size: medium;
+}
+
+.profile-buttons {
+  margin-top: 2em;          
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-info {
+    align-items: center;
+    text-align: center;
+  }
+}
+  .profile-pic {
+    width: 40vw;
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 1rem;
+  }
+
+.about, .tech-stack, .experience, .education, .projects {
+  margin-top: 0;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: rgb(16, 16, 16);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+/* === Bento layout === */
+.bento {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0.5rem;
+  grid-template-areas:
+    "about experience"
+    "tech-stack experience"
+    "education projects";
+}
+
+.about       { grid-area: about; }
+.tech-stack  { grid-area: tech-stack; }
+.experience  { grid-area: experience; }
+.education   { grid-area: education; }
+.projects    { grid-area: projects; }
+
+@media screen and (max-width: 900px) {
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "about"
+      "tech-stack"
+      "experience"
+      "education"
+      "projects";
+    gap: 1rem;
+  }
+}
+
+.about {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-stack {
+  margin-top: 1.5rem;
+}
+
+.tech-stack ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-stack li {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.4em 1.2em;
+  font-size: 1em;
+  border: 1px solid rgba(255,255,255,0.2);
+  margin: 0;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.tech-stack li:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+.experience ul.timeline {
+  list-style: none;
+  margin: 0.5em;
+  padding: 0.5em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience ul.timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgb(39, 39, 39);
+  z-index: 0;
+}
+
+.experience ul.timeline li {
+  position: relative;
+  padding-left: 40px;
+}
+
+.experience ul.timeline li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.5em;
+  width: 16px;
+  height: 16px;
+  background: #222;
+  border-radius: 50%;
+  border: 1px solid #606060;
+  box-sizing: border-box;
+  z-index: 1;
+  transition: background 0.2s, border 0.2s;
+}
+
+.experience ul.timeline li.current::before {
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 0.2em;
+}
+
+.experience ul.timeline .timeline-year {
+  background: rgba(255,255,255,0.12);
+  text-align: center;
+  min-width: 3em;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.2em 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  border: 1px solid rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.education ul.timeline .timeline-year {
+  background: rgba(255,255,255,0.12);
+  text-align: center;
+  width: 8em;
+  min-width: 6em;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.2em 1em;
+  font-size: 0.95em;
+  font-weight: bold;
+  border: 1px solid rgba(255,255,255,0.2);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-right: 1em;
+}
+
+.education ul.timeline .timeline-content {
+  margin-bottom: 2em;
+}
+
+.education {
+  margin-top: 0.25em;
+}
+
+.timeline-org {
+  padding-top: 0.5em;
+  font-size: smaller;
+}
+
+.timeline-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timeline-info h4,
+.timeline-info .timeline-org {
+  margin: 0;
+}
+
+/* === Projects Section === */
+
+.projects ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+  justify-content: center;
+}
+.project-link {
+  display: block;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.project-link:hover {
+  background-color: rgba(255,255,255,0.1);
+  transform: translateY(-3px);
+}
+
+.project-link h4,
+.project-link p {
+  margin: 0.2rem 0; 
+}
+
+/* === Logout Button Style === */
+
+.logout-form {
+  all: unset; 
+}
+.logout-form .logout-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.logout-button {
+  position: fixed;  
+  top: 20px;        
+  right: 20px;      
+  z-index: 9999;     
+  padding: 0.4rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #fafafa;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: rgba(255,255,255,0.5);
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .logout-button {
+    top: 10px;      
+    right: 10px;    
+    padding: 0.3rem 1rem; 
+    font-size: 0.9rem;    
+  }
+}
