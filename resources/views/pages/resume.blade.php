@@ -1,100 +1,16 @@
-<?php
-
-session_start(); 
-
-if (empty($_SESSION['user_id'])) { 
-  header('Location: login.php'); 
-  exit; }
-
-// Personal Info
-$name = "Hubert San Gil";
-$title = "3rd Year | BS Computer Science";
-$location = "Lucena City, Quezon, Philippines";
-$about = "I'm currently a third-year student taking up BS Computer Science in Batangas State University Alangilan.
-I have a strong passion for technology and programming, and I'm always eager to learn new skills and improve my knowledge in the field. In addition to my academic pursuits,
-In my free time I like to do graphic design and explore creative-related technologies.";
-$contact_number = "0947 7464 585";
-$contact_email = "sangilhubertross@gmail.com";
-
-// Tech Stack
-$tech_stack = [
-  "Java",
-  "Python",
-  "HTML",
-  "CSS",
-  "C++",
-  "C#",
-];
-
-// Organization Experience
-$experience = [
-  [
-    "year" => "2025",
-    "title" => "Committee Head on Technical Affairs",
-    "org" => "CICS-SC Alangilan",
-    "current" => true
-  ],
-  [
-    "year" => "2025",
-    "title" => "Senior Media & Creatives Officer",
-    "org" => "ADSS BatStateU Alangilan",
-    "current" => true
-  ],
-  [
-    "year" => "2024",
-    "title" => "Director for Marketing & Publications",
-    "org" => "Junior Philippine Computer Society - BatStateU Alangilan",
-    "current" => false
-  ]
-];
-
-// Education
-$education = [
-  [
-    "year" => "2023 - Present",
-    "title" => "Bachelor of Science in Computer Science",
-    "org" => "Batangas State University - Alangilan Campus",
-    "current" => true
-  ],
-
-  [
-    "year" => "2017 - 2023",
-    "title" => "Senior High School - STEM Strand",
-    "org" => "Quezon National High School",
-    "current" => false
-  ],
-
-    [
-    "year" => "2010 - 2017",
-    "title" => "Primary School",
-    "org" => "Lucena West 1 Elementary School",
-    "current" => false
-  ]
-];
-
-
-$projects = [
-    [
-        'title' => 'RememBert',
-        'description' => 'A simple Java console-based task tracker',
-        'link' => 'https://github.com/hubertsangil/RememBert'
-    ]
-];
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?php echo $name; ?> - Resume</title>
+  <title>{{ $name }} - Resume</title>
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 </head>
     
 <body>
-  <form method="post" action="logout.php" class="logout-form"> 
+  <form method="post" action="{{ route('logout') }}" class="logout-form"> 
+      @csrf
       <button type="submit" class="logout-button">Log out</button> 
     </form>
   <div class = "resume-page">
@@ -102,20 +18,20 @@ $projects = [
     <img src="../assets/images/profile.png" alt="Profile Picture" class="profile-pic">
     <div class="profile-info">
       <div class="profile-details">
-        <h1><?php echo $name; ?></h1>
+        <h1>{{ $name }}</h1>
         <p>
           <span class="location-icon" aria-label="Location">
             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="vertical-align: middle;">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" fill="#fff"/>
             </svg>
           </span>
-          <?php echo $location; ?>
+          {{ $location }}
         </p>
-        <h2><?php echo $title; ?></h2>
+        <h2>{{ $title }}</h2>
       </div>
       <div class="contact-info">
-        <p><i class="fas fa-phone"></i><?php echo $contact_number; ?></p>
-        <p><i class="fas fa-envelope"></i><?php echo $contact_email; ?></p>
+        <p><i class="fas fa-phone"></i>{{ $contact_number }}</p>
+        <p><i class="fas fa-envelope"></i>{{ $contact_email }}</p>
         <div class="contact-buttons">
           <a href="https://github.com/hubertsangil" target="_blank" class="github-button">
     <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor">
@@ -134,16 +50,16 @@ $projects = [
   <div class="bento">
     <section class="about">
       <h3>About</h3>
-      <p><?php echo $about; ?></p>
+      <p>{{ $about }}</p>
     </section>
 
 
     <section class="tech-stack">
       <h3>Tech Stack</h3>
       <ul>
-        <?php foreach ($tech_stack as $tech): ?>
-          <li><?php echo $tech; ?></li>
-        <?php endforeach; ?>
+        @foreach ($tech_stack as $tech)
+          <li>{{ $tech }}</li>
+        @endforeach
       </ul>
     </section>
 
@@ -151,19 +67,19 @@ $projects = [
     <section class="experience">
       <h3> Organization Experience</h3>
       <ul class="timeline">
-        <?php foreach ($experience as $exp): ?>
-          <li<?php if ($exp['current']) echo ' class="current"'; ?>>
+        @foreach ($experience as $exp)
+          <li @if($exp['current']) class="current" @endif>
             <div class="timeline-content">
               <div class="timeline-meta">
-                <span class="timeline-year"><?php echo $exp['year']; ?></span>
+                <span class="timeline-year">{{ $exp['year'] }}</span>
                 <div class="timeline-info">
-                  <h4><?php echo $exp['title']; ?></h4>
-                  <span class="timeline-org"><?php echo $exp['org']; ?></span>
+                  <h4>{{ $exp['title'] }}</h4>
+                  <span class="timeline-org">{{ $exp['org'] }}</span>
                 </div>
               </div>
             </div>
           </li>
-        <?php endforeach; ?>
+        @endforeach
       </ul>
     </section>
 
@@ -171,19 +87,19 @@ $projects = [
     <section class="education">
       <h3>Education</h3>
       <ul class="timeline">
-        <?php foreach ($education as $edu): ?>
-          <li<?php if ($edu['current']) echo ' class="current"'; ?>>
+        @foreach ($education as $edu)
+          <li @if($edu['current']) class="current" @endif>
             <div class="timeline-content">
               <div class="timeline-meta">
-                <span class="timeline-year"><?php echo $edu['year']; ?></span>
+                <span class="timeline-year">{{ $edu['year'] }}</span>
                 <div class="timeline-info">
-                  <h4><?php echo $edu['title']; ?></h4>
-                  <span class="timeline-org"><?php echo $edu['org']; ?></span>
+                  <h4>{{ $edu['title'] }}</h4>
+                  <span class="timeline-org">{{ $edu['org'] }}</span>
                 </div>
               </div>
             </div>
           </li>
-        <?php endforeach; ?>
+        @endforeach
       </ul>
     </section>
 
@@ -191,14 +107,14 @@ $projects = [
     <h3>Projects</h3>
     <div class="project-list">
       <ul>
-        <?php foreach ($projects as $project): ?>
+        @foreach ($projects as $project)
           <li>
-            <a href="<?php echo $project['link']; ?>" target="_blank" class="project-link">
-              <h4><?php echo htmlspecialchars($project['title']); ?></h4>
-              <p><?php echo htmlspecialchars($project['description']); ?></p>
+            <a href="{{ $project['link'] }}" target="_blank" class="project-link">
+              <h4>{{ $project['title'] }}</h4>
+              <p>{{ $project['description'] }}</p>
             </a>
           </li>
-        <?php endforeach; ?>
+        @endforeach
       </ul>
     </div>
   </section>
