@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply h-full m-0 p-0;
+  }
+
+  body {
+    @apply flex flex-col min-h-screen font-dm-sans text-sm bg-resume-dark text-white text-left animate-fade-in-up;
+  }
+
+  main {
+    @apply flex-1;
+  }
+
+  p {
+    @apply leading-8;
+  }
+
+  h1 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .resume-page {
+    @apply mx-[20vw] p-5;
+  }
+
+  .footer {
+    @apply text-white text-center p-4 relative w-full mt-8;
+  }
+
+  .error {
+    @apply text-red-500 text-[0.9em] mt-2 mb-0;
+  }
+
+  .card {
+    @apply font-dm-sans mx-auto max-w-md flex flex-col;
+  }
+
+  /* Builder styles */
+  .builder-container {
+    @apply max-w-[800px] mx-auto my-10 p-5;
+  }
+
+  .form-section {
+    @apply mb-10 p-5 bg-white rounded-lg border border-gray-200;
+  }
+
+  .form-section h2 {
+    @apply mt-0 text-gray-800;
+  }
+
+  .form-group {
+    @apply mb-5;
+  }
+
+  .form-group label {
+    @apply block mb-1 font-bold text-gray-700;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    @apply w-full p-2 border border-gray-300 rounded-md bg-white text-gray-800;
+  }
+
+  .form-group textarea {
+    @apply min-h-[100px];
+  }
+
+  .array-item {
+    @apply mb-4 p-4 bg-white rounded-md border border-gray-300;
+  }
+
+  .add-item-btn {
+    @apply bg-green-500 text-white py-2 px-5 rounded-md cursor-pointer hover:bg-green-600;
+  }
+
+  .remove-item-btn {
+    @apply bg-red-500 text-white py-1 px-3 rounded-md cursor-pointer hover:bg-red-600;
+  }
+
+  .submit-btn {
+    @apply bg-blue-500 text-white py-4 px-8 rounded-md cursor-pointer text-base hover:bg-blue-600;
+  }
+
+  .builder-header {
+    @apply flex justify-between items-center mb-5;
+  }
+
+  .view-resume-btn {
+    @apply mr-2 py-2 px-4 bg-blue-500 text-white no-underline rounded-md hover:bg-blue-600;
+  }
+
+  .success-alert {
+    @apply bg-green-500 text-white p-3 rounded-md mb-5;
+  }
+
+  .auth-link a {
+    @apply no-underline text-[#fafafa] text-sm font-bold transition-colors duration-200 hover:text-white hover:underline;
+  }
+
+  .form-field {
+    @apply flex flex-col w-full;
+  }
+
+  .form-field label {
+    @apply block mb-1 font-bold text-gray-700;
+  }
+
+  .form-field input {
+    @apply mt-1 rounded-md border border-gray-300 p-2 w-full box-border bg-white text-gray-800;
+  }
+
+  /* Login/Register styles */
+  .auth-page {
+    @apply min-h-screen flex items-center justify-center flex-col bg-resume-dark text-white font-dm-sans animate-fadeInUp;
+  }
+
+  .auth-container {
+    @apply w-full max-w-md mx-auto px-6;
+  }
+
+  .auth-box {
+    @apply bg-[#222222] border border-resume-gray-300 rounded-lg p-8;
+  }
+
+  .auth-title {
+    @apply text-2xl font-bold mb-6 text-white;
+  }
+
+  .auth-form {
+    @apply flex flex-col w-full space-y-6;
+  }
+
+  .form-group-auth {
+    @apply space-y-2;
+  }
+
+  .form-label-auth {
+    @apply block text-white;
+  }
+
+  .form-input-auth {
+    @apply mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-800 px-4 py-2;
+  }
+
+  .auth-submit-btn {
+    @apply w-full bg-white text-resume-dark rounded-full py-2 px-4 font-semibold hover:bg-resume-gray-200 transition-colors duration-200;
+  }
+
+  .button {
+    @apply inline-flex items-center justify-center rounded-full border border-resume-gray-400 bg-resume-dark text-white px-6 py-1.5 text-center transition-all duration-200 shadow-none m-0 hover:bg-resume-gray-500 hover:text-black;
+  }
+
+  .profile {
+    @apply flex items-center text-left p-0 justify-start max-w-full flex-wrap box-border gap-4;
+  }
+
+  .profile-pic {
+    @apply w-[30vw] max-w-[200px] min-w-[60px] h-[30vw] max-h-[200px] min-h-[60px] rounded-[10%] border border-resume-gray-400 mr-4 object-cover object-[60%_30%];
+  }
+
+  .profile-info {
+    @apply min-w-0 flex-1 box-border flex flex-col items-start;
+  }
+
+  .profile-details {
+    @apply text-lg flex flex-col;
+  }
+
+  .contact-info {
+    @apply mt-4 flex gap-8 items-center;
+  }
+
+  .contact-buttons {
+    @apply flex items-center gap-2;
+  }
+
+  .social-button {
+    @apply inline-flex items-center gap-2 px-3 py-1 border border-resume-gray-400 rounded-full text-white bg-resume-dark no-underline transition-all duration-200 hover:bg-resume-gray-100;
+  }
+
+  .bento {
+    @apply mt-8 grid grid-cols-[2fr_1fr] auto-rows-auto gap-2 [grid-template-areas:"about_experience"_"tech-stack_experience"_"education_projects"];
+  }
+
+  .bento > * {
+    @apply mt-0 p-4 pl-5 bg-[#101010] border border-resume-gray-400 rounded-lg;
+  }
+
+  .tech-stack ul {
+    @apply flex flex-wrap gap-2 list-none p-0 m-0;
+  }
+
+  .tech-stack li {
+    @apply bg-resume-gray-100 text-white rounded-full px-5 py-1.5 text-base border border-resume-gray-200 m-0 inline-block transition-colors duration-200 hover:bg-resume-gray-300;
+  }
+
+  .timeline {
+    @apply list-none m-2 p-2 relative flex flex-col gap-6;
+  }
+
+  .timeline li {
+    @apply relative pl-10;
+  }
+
+  .timeline li::before {
+    @apply content-[''] absolute left-1 top-2 w-4 h-4 bg-timeline-dot rounded-full border border-timeline-border box-border z-[1] transition-all duration-200;
+  }
+
+  .timeline li.current::before {
+    @apply bg-white border-2 border-white shadow-[0_0_8px_#ffffff];
+  }
+
+  .timeline-meta {
+    @apply flex items-center gap-4 mt-1;
+  }
+
+  .timeline-year {
+    @apply bg-resume-gray-200 text-center min-w-[3em] text-white rounded-full px-4 py-1 text-[0.95em] font-bold border border-resume-gray-200 tracking-wider flex-shrink-0;
+  }
+
+  .timeline-info {
+    @apply flex flex-col justify-center;
+  }
+
+  .timeline-org {
+    @apply pt-2 text-sm;
+  }
+
+  .projects ul {
+    @apply list-none mx-auto p-0 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-2 justify-center;
+  }
+
+  .project-link {
+    @apply block p-4 border border-resume-gray-400 rounded-lg no-underline text-white transition-all duration-200 hover:bg-resume-gray-100 hover:-translate-y-[3px];
+  }
+
+  .logout-button {
+    @apply fixed top-5 right-5 z-50 px-6 py-1.5 rounded-full bg-white text-black cursor-pointer transition-all duration-200 hover:bg-resume-gray-500 hover:text-black;
+  }
+}
+
+@media (max-width: 900px) {
+  .bento {
+    @apply grid-cols-1 [grid-template-areas:"about"_"tech-stack"_"experience"_"education"_"projects"] gap-4;
+  }
+  
+  .profile {
+    @apply flex-col items-center text-center;
+  }
+
+  .profile-info {
+    @apply items-center text-center;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    @apply flex-col gap-4 items-center;
+  }
+  
+  .profile-pic {
+    @apply w-[40vw] max-w-[150px] max-h-[150px] mb-4;
+  }
+
+  .logout-button {
+    @apply top-2.5 right-2.5 px-4 py-1 text-sm;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}

@@ -65,7 +65,7 @@ class AuthController extends Controller
         Session::put('user_id', $user->id);
         Session::put('username', $username);
 
-        return redirect()->route('resume');
+        return redirect()->route('builder');
     }
 
     public function showRegister()

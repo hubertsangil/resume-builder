@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Register</title>
-  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="register-page">
   <div class="card">

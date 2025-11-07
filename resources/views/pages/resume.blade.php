@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ $name }} - Resume</title>
-  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 </head>
     
 <body>
-  <form method="post" action="{{ route('logout') }}" class="logout-form"> 
+  <form method="POST" action="{{ route('logout') }}" class="logout-form"> 
       @csrf
       <button type="submit" class="logout-button">Log out</button> 
     </form>
