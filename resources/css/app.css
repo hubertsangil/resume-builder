@@ -29,6 +29,22 @@
     @apply mx-[20vw] p-5;
   }
 
+  .resume-page h1 {
+    @apply text-3xl font-bold mb-2 text-white;
+  }
+
+  .resume-page p {
+    @apply flex items-center text-lg;
+  }
+
+  .resume-page .location-text {
+    @apply text-resume-gray-500;
+  }
+
+  .resume-page .location-icon {
+    @apply inline-flex items-center mr-2 text-resume-gray-400;
+  }
+
   .footer {
     @apply text-white text-center p-4 relative w-full mt-8;
   }
@@ -43,15 +59,15 @@
 
   /* Builder styles */
   .builder-container {
-    @apply max-w-[800px] mx-auto my-10 p-5;
+    @apply w-[900px] mx-auto my-10 p-5;
   }
 
   .form-section {
-    @apply mb-10 p-5 bg-white rounded-lg border border-gray-200;
+    @apply mb-10 p-5 bg-[#222222] rounded-lg border border-resume-gray-300;
   }
 
   .form-section h2 {
-    @apply mt-0 text-gray-800;
+    @apply text-lg font-bold mt-0 mb-2 text-resume-gray-300;
   }
 
   .form-group {
@@ -59,10 +75,10 @@
   }
 
   .form-group label {
-    @apply block mb-1 font-bold text-gray-700;
+    @apply block mb-1 font-bold text-white;
   }
 
-  .form-group input,
+  .form-group input:not([type="checkbox"]),
   .form-group textarea {
     @apply w-full p-2 border border-gray-300 rounded-md bg-white text-gray-800;
   }
@@ -71,12 +87,20 @@
     @apply min-h-[100px];
   }
 
+  .form-group input[type="checkbox"] {
+    @apply mr-2 w-4 h-4 cursor-pointer accent-blue-500;
+  }
+
+  .form-group label:has(input[type="checkbox"]) {
+    @apply flex items-center cursor-pointer font-normal;
+  }
+
   .array-item {
-    @apply mb-4 p-4 bg-white rounded-md border border-gray-300;
+    @apply mb-4 p-4 bg-[#222222] rounded-md border border-resume-gray-300;
   }
 
   .add-item-btn {
-    @apply bg-green-500 text-white py-2 px-5 rounded-md cursor-pointer hover:bg-green-600;
+    @apply text-sm px-6 py-1.5 rounded-full bg-resume-gray-100 border border-resume-gray-300 text-white cursor-pointer transition-all duration-200 hover:bg-resume-gray-500 hover:text-black;
   }
 
   .remove-item-btn {
@@ -84,17 +108,19 @@
   }
 
   .submit-btn {
-    @apply bg-blue-500 text-white py-4 px-8 rounded-md cursor-pointer text-base hover:bg-blue-600;
+    @apply text-sm px-6 py-2 rounded-full bg-black text-white border border-resume-gray-300 cursor-pointer transition-all duration-200 hover:bg-resume-gray-500 hover:text-black mx-auto block mt-8;
   }
-
+  
   .builder-header {
-    @apply flex justify-between items-center mb-5;
+    @apply flex text-2xl justify-between items-center mb-5;
   }
 
+  .builder-logout-button {
+    @apply text-sm px-6 py-1.5 rounded-full bg-white text-black cursor-pointer transition-all duration-200 hover:bg-resume-gray-500 hover:text-black;
+  }
   .view-resume-btn {
-    @apply mr-2 py-2 px-4 bg-blue-500 text-white no-underline rounded-md hover:bg-blue-600;
+    @apply text-sm px-6 py-2 rounded-full bg-black text-white border border-resume-gray-300 cursor-pointer transition-all duration-200 hover:bg-resume-gray-500 hover:text-black;
   }
-
   .success-alert {
     @apply bg-green-500 text-white p-3 rounded-md mb-5;
   }
@@ -129,11 +155,11 @@
   }
 
   .auth-title {
-    @apply text-2xl font-bold mb-6 text-white;
+    @apply text-2xl font-bold mb-1 text-white;
   }
 
   .auth-form {
-    @apply flex flex-col w-full space-y-6;
+    @apply mt-6 flex flex-col w-full gap-6;
   }
 
   .form-group-auth {
@@ -148,6 +174,10 @@
     @apply mt-1 block w-full rounded-md border-gray-300 bg-white text-gray-800 px-4 py-2;
   }
 
+  .auth-submit-btn-wrapper {
+    @apply mt-8;
+  }
+
   .auth-submit-btn {
     @apply w-full bg-white text-resume-dark rounded-full py-2 px-4 font-semibold hover:bg-resume-gray-200 transition-colors duration-200;
   }
@@ -156,8 +186,22 @@
     @apply inline-flex items-center justify-center rounded-full border border-resume-gray-400 bg-resume-dark text-white px-6 py-1.5 text-center transition-all duration-200 shadow-none m-0 hover:bg-resume-gray-500 hover:text-black;
   }
 
+  /* Register styles */
+
   .profile {
     @apply flex items-center text-left p-0 justify-start max-w-full flex-wrap box-border gap-4;
+  }
+
+   .resume-page h1 {
+    @apply text-3xl font-bold mb-2 text-white;
+  }
+
+  .resume-page p {
+    @apply align-middle;
+  }
+
+  .resume-page .location-icon {
+    @apply inline-flex items-center mr-2 text-resume-gray-400;
   }
 
   .profile-pic {

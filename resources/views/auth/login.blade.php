@@ -34,9 +34,11 @@
                         @endif
                     </label>
                 </div>
-                <button type="submit" class="auth-submit-btn">
-                    Login
-                </button>
+                <div class="auth-submit-btn-wrapper">
+                    <button type="submit" class="auth-submit-btn">
+                        Login
+                    </button>
+                </div>
             </form>
 </body>
 </html>
