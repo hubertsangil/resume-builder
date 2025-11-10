@@ -9,13 +9,14 @@
   <div class="builder-container">
     <div class="builder-header">
       <h1>Resume Builder</h1>
-      <div>
+      <div class="builder-header-buttons">
         @if($resume)
           <a href="{{ route('resume.public', ['slug' => $resume->slug]) }}" target="_blank" class="view-resume-btn">View Public Resume</a>
         @endif
-        <form method="POST" action="{{ route('logout') }}" class="logout-form" style="display: inline;">
+        <form method="POST" action="{{ route('logout') }}" class="logout-form">
           @csrf
           <button type="submit" class="builder-logout-button">Logout</button>
+        </form>
       </div>
     </div>
     
