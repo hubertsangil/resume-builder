@@ -5,31 +5,38 @@
   <title>Register</title>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="register-page">
-  <div class="card">
-    <h2>Register</h2>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2 class="auth-title">Register</h2>
 
-    <form class="register-form" method="post" action="{{ route('register.submit') }}" autocomplete="off">
-      @csrf
-      <label class="form-field">
-        <span>Username</span>
-        <input name="username" value="{{ old('username', '') }}" required>
-        @foreach ($errors->get('username', []) as $err)
-        <div class="error">{{ $err }}</div>
-        @endforeach
-      </label>
-      <label class="form-field">
-        <span>Password</span>
-        <input name="password" type="password" required>
-        @foreach ($errors->get('password', []) as $err)
-        <div class="error">{{ $err }}</div>
-        @endforeach
-      </label>
-      <button type="submit">Create account</button>
-    </form>
-    <div class="login-link">
+      <form class="auth-form" method="post" action="{{ route('register.submit') }}" autocomplete="off">
+        @csrf
+        <div class="form-group-auth">
+          <label class="form-label-auth">
+            Username
+            <input type="text" name="username" value="{{ old('username', '') }}" class="auth-input" required>
+          </label>
+          @foreach ($errors->get('username', []) as $err)
+            <div class="error">{{ $err }}</div>
+          @endforeach
+        </div>
+
+        <div class="form-group-auth">
+          <label class="form-label-auth">
+            Password
+            <input type="password" name="password" class="auth-input" required>
+          </label>
+          @foreach ($errors->get('password', []) as $err)
+            <div class="error">{{ $err }}</div>
+          @endforeach
+        </div>
+
+        <button type="submit" class="auth-submit">Create account</button>
+      </form>
+  </div>
+        <div class="auth-link mt-6 text-center">
       <p><a href="{{ route('login') }}">Already have an account? Login</a></p>
     </div>
-  </div>
 </body>
 </html>

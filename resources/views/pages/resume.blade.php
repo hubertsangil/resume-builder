@@ -15,7 +15,20 @@
     </form>
   <div class = "resume-page">
   <div class="profile">
-    <img src="assets/images/profile.png" alt="Profile Picture" class="profile-pic">
+    @php
+      $defaultAvatar = 'data:image/svg+xml;base64,'. base64_encode('
+        <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="400" fill="#374151"/>
+          <path d="M200 220C244.183 220 280 184.183 280 140C280 95.8172 244.183 60 200 60C155.817 60 120 95.8172 120 140C120 184.183 155.817 220 200 220Z" fill="#9CA3AF"/>
+          <path d="M332 360C332 295.577 272.423 240 208 240H192C127.577 240 68 295.577 68 360V400H332V360Z" fill="#9CA3AF"/>
+        </svg>
+      ');
+    @endphp
+    @if($profile_photo)
+      <img src="{{ asset('storage/' . $profile_photo) }}" alt="{{ $name }}'s Profile Photo" class="profile-pic">
+    @else
+      <img src="{{ $defaultAvatar }}" alt="Default Profile Picture" class="profile-pic">
+    @endif
     <div class="profile-info">
       <div class="profile-details">
         <h1>{{ $name }}</h1>

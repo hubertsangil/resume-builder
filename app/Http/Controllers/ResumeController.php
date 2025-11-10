@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class ResumeController extends Controller
 {
@@ -82,6 +83,10 @@ In my free time I like to do graphic design and explore creative-related technol
             ],
         ];
 
+        $user_id = Session::get('user_id');
+        $resume_data = DB::table('resumes')->where('user_id', $user_id)->first();
+        $profile_photo = $resume_data ? $resume_data->profile_photo : null;
+
         return view('pages.resume', compact(
             'name',
             'title',
@@ -92,7 +97,8 @@ In my free time I like to do graphic design and explore creative-related technol
             'tech_stack',
             'experience',
             'education',
-            'projects'
+            'projects',
+            'profile_photo'
         ));
     }
 }

@@ -21,17 +21,30 @@
     </div>
     
     @if(session('success'))
-      <div class="success-alert">
+      <div class="success-alert" id="successAlert">
         {{ session('success') }}
       </div>
     @endif
 
-    <form method="POST" action="{{ route('builder.store') }}" id="resumeForm">
+    <form method="POST" action="{{ route('builder.store') }}" id="resumeForm" enctype="multipart/form-data">
       @csrf
 
       <!-- Personal Info -->
       <div class="form-section">
         <h2>Personal Information</h2>
+        <div class="form-group">
+          @if(isset($resume) && $resume->profile_photo)
+            <div class="current-photo mb-4">
+              <label>Current Photo</label>
+              <img src="{{ asset('storage/' . $resume->profile_photo) }}" alt="Profile Photo" class="profile-photo-preview">
+            </div>
+          @endif
+          <div class="photo-upload">
+            <label>Profile Photo</label>
+            <input type="file" name="profile_photo" accept="image/*" class="profile-photo-input">
+            <p class="text-sm text-resume-gray-400">Recommended size: 400x400px. Max size: 2MB</p>
+          </div>
+        </div>
         <div class="form-group">
           <label>Full Name *</label>
           <input type="text" name="name" value="{{ old('name', $resume->name ?? '') }}" required>

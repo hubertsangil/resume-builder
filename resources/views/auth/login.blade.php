@@ -46,7 +46,7 @@
                 </div>
             </form>
             <div class="mt-6 text-center">
-                <a href="{{ route('register') }}" class="text-resume-light hover:text-resume-gray-200 transition-colors duration-200">
+                <a href="{{ route('register') }}" class="text-resume-light hover:underline">
                     I don't have an account yet.
                 </a>
             </div>

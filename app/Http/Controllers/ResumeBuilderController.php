@@ -34,6 +34,28 @@ class ResumeBuilderController extends Controller
         
         // Generate slug if new
         $slug = $existing ? $existing->slug : Str::slug($request->input('name', 'resume') . '-' . $user_id . '-' . time());
+        
+        // Handle profile photo upload
+        $profile_photo = $existing ? $existing->profile_photo : null;
+        if ($request->hasFile('profile_photo')) {
+            $file = $request->file('profile_photo');
+            
+            // Validate file
+            $request->validate([
+                'profile_photo' => 'image|mimes:jpeg,png,jpg|max:2048'
+            ]);
+            
+            // Store the file
+            $filename = 'profile-' . $user_id . '-' . time() . '.' . $file->extension();
+            $file->storeAs('public/profiles', $filename);
+            
+            // Delete old file if exists
+            if ($profile_photo && file_exists(storage_path('app/public/' . $profile_photo))) {
+                unlink(storage_path('app/public/' . $profile_photo));
+            }
+            
+            $profile_photo = 'profiles/' . $filename;
+        }
 
         // Process arrays
         $tech_stack = array_filter(array_map('trim', explode(',', $request->input('tech_stack', ''))));
@@ -90,6 +112,7 @@ class ResumeBuilderController extends Controller
             'title' => $request->input('title'),
             'location' => $request->input('location'),
             'about' => $request->input('about'),
+            'profile_photo' => $profile_photo,
             'contact_number' => $request->input('contact_number'),
             'contact_email' => $request->input('contact_email'),
             'tech_stack' => json_encode($tech_stack),
@@ -103,12 +126,14 @@ class ResumeBuilderController extends Controller
 
         if ($existing) {
             DB::table('resumes')->where('id', $existing->id)->update($data);
+            $message = 'Resume updated successfully! 🎉';
         } else {
             $data['created_at'] = now();
             DB::table('resumes')->insert($data);
+            $message = 'Resume created successfully! 🎉';
         }
 
-        return redirect()->route('resume.public', ['slug' => $slug])->with('success', 'Resume saved!');
+        return redirect()->back()->with('success', $message);
     }
 }
 

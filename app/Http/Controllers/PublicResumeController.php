@@ -28,6 +28,7 @@ class PublicResumeController extends Controller
             'projects' => json_decode($resume->projects, true) ?: [],
             'github_url' => $resume->github_url,
             'resume_pdf_url' => $resume->resume_pdf_url,
+            'profile_photo' => $resume->profile_photo,
         ]);
     }
 }

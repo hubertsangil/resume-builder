@@ -1,4 +1,5 @@
 import './bootstrap';
+import './alerts';
 
 // Ensure proper form submission for logout
 document.addEventListener('DOMContentLoaded', function() {
